@@ -26,3 +26,4 @@ html = map(x -> HTML("<pre>$x</pre>"), summ)
 schedule(pmap_task)
 vbox(html)  # not necessary on IJulia
 ```
+<img src="https://raw.githubusercontent.com/yha/ObservablePmap.jl/master/opmap-html-output.gif" width="600" />
