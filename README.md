@@ -22,8 +22,8 @@ obs, task = opmap(1:5; schedule_now=false, on_error=identity) do setmessage, x
     setmessage("All $x-bars successfully fooed.")
 end
 
-html = map(x -> HTML("<pre>$x</pre>"), summ)
-schedule(pmap_task)
+html = map(x -> HTML("<pre>$x</pre>"), obs)
+schedule(task)
 vbox(html)  # not necessary on IJulia
 ```
 <img src="https://raw.githubusercontent.com/yha/ObservablePmap.jl/master/opmap-html-output.gif" width="600" />
