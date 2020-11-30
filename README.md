@@ -2,7 +2,8 @@
 
 *distributed `map` returning an observable for following worker progress*
 
-Example: running some fake work and viewing worker state in IJulia or Juno plot pane using HTML:
+### Example 
+Running some fake work and viewing worker state in IJulia or Juno plot pane using HTML:
 ```
 using Distributed
 addprocs(2)
@@ -26,4 +27,5 @@ html = map(x -> HTML("<pre>$x</pre>"), obs)
 schedule(task)
 vbox(html)  # not necessary on IJulia
 ```
+Here's what the output looks like in Juno's plot pane:
 <img src="https://raw.githubusercontent.com/yha/ObservablePmap.jl/master/opmap-html-output.gif" width="600" />
