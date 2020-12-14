@@ -91,7 +91,9 @@ function opmap( f, p::AbstractWorkerPool, c...;
             else
                 messages[i] = msg
             end
-            summ[] = summarize(els,statuses,messages,worker_ids)
+            # `invokelatest` as workaround to world-age issues (`Observables` issue #50)
+            Base.invokelatest(setindex!, summ, summarize(els,statuses,messages,worker_ids))
+            #summ[] = summarize(els,statuses,messages,worker_ids)
         end
     end)
 
