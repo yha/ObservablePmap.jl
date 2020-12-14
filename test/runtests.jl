@@ -62,7 +62,6 @@ _summ( els, statuses, messages, ids ) = copy(messages)
                     summarize=_summ, on_error=identity) do x
         for i in 1:3
             @info "$x $i"
-            x == 2 && error()
         end
     end
     test_pmap_output(summ, task, v,
@@ -78,11 +77,4 @@ _summ( els, statuses, messages, ids ) = copy(messages)
                      r"┌ Info: c 3\n└ @ Main.*$"]]
     )
 
-end
-
-summ, task = ologpmap(["a", "b", "c"]; schedule_now=false,
-                summarize=_summ, on_error=identity) do x
-    for i in 1:3
-        @info "$x $i"
-    end
 end
