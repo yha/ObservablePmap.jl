@@ -46,14 +46,14 @@ Example:
 @everywhere using TerminalLoggers
 summ, task = ologpmap( 'a':'e', 2:2:10;
                        on_error=identity, logger_f=TerminalLogger ) do c, x
-    @withprogress name="processing '$c'" for i=1:x
+    @withprogress name="processing '\$c'" for i=1:x
         sleep(rand())
         @logprogress i/x
     end
-    @info "finished '$c'"
+    @info "finished '\$c'"
     x
 end
-html = map(x -> HTML("<pre>$x</pre>"), summ)
+html = map(x -> HTML("<pre>\$x</pre>"), summ)
 ```
 """
 ologpmap( f, c...; kwargs... ) = ologpmap( f, default_worker_pool(), c...; kwargs... )
