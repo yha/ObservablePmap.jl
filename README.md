@@ -46,8 +46,7 @@ addprocs(2)
 @everywhere using TerminalLoggers
 using CSSUtil: vbox
 
-summ, task = ologpmap( 'a':'e', 2:2:10;
-                       on_error=identity, logger_f=TerminalLogger ) do c, x
+summ, task = ologpmap( 'a':'e', 2:2:10; logger_f=TerminalLogger ) do c, x
     @withprogress name="Processing '$c'" for i=1:x
         sleep(rand())
         @logprogress i/x
