@@ -12,7 +12,7 @@ using Distributed
 addprocs(2)
 
 @everywhere using ObservablePmap
-using WebIO, CSSUtil, Observables
+using CSSUtil: vbox
 
 obs, task = opmap(1:5; schedule_now=false, on_error=identity) do setmessage, x
     setmessage("Initializing...")
