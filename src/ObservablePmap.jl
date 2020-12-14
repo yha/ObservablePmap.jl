@@ -44,7 +44,7 @@ Example:
 ```jldoctest
 @everywhere using ObservablePmap
 using Observables # for `map` method below
-summ, task = omap(1:5; on_error=identity) do setmessage, x
+summ, task = opmap(1:5; on_error=identity) do setmessage, x
     for i=1:5
         setmessage("\$i @ \$x")
         (10i+x==33) && error("Error at \$i")
