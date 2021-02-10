@@ -7,7 +7,7 @@ The `opmap` function is a wrapper around `pmap` which allows workers to report t
 
 ### Example 
 Running some fake work and viewing worker state in IJulia or Juno plot pane using HTML:
-```
+```julia
 using Distributed
 addprocs(2)
 
@@ -38,7 +38,7 @@ Here's what the output looks like in Juno's plot pane:
 When using `ologpmap`, log messages produced by workers are used as their status message. Accordingly, the function argument to `ologpmap` does *not* take an additional `setmessage` argument. By default, log messages in workers are processed by a `Base.CoreLogging.SimpleLogger`, and its output is used as the status message. The `logger_f` keyword argument to `ologpmap` can be used to specify a different logger: specifically, `logger_f(io)` should produce a logger writing log messages to `io`.
 ### Example
 This example uses `ProgressLogging.jl` and `TerminalLoggers.jl` to show progress bars.
-```
+```julia
 using Distributed
 addprocs(2)
 @everywhere using ObservablePmap
